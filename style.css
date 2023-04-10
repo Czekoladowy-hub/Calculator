@@ -12,10 +12,15 @@ body {
 }
 
 .screen {
-  border: 5px solid black;
-  border-radius: 10px;
   height: 100px;
   margin: 20px;
+  padding: 0 10px;
+  border: 5px solid black;
+  border-radius: 10px;
+  font-size: 30px;
+  direction: rtl;
+  display: flex;
+  align-items: center;
 }
 
 .buttonsContainer {
@@ -33,4 +38,8 @@ body {
   border-radius: 10px;
   width: calc(25% - 7.5px);
   aspect-ratio: 1;
+}
+
+.number {
+  background-color: rgb(255, 138, 138);
 }
