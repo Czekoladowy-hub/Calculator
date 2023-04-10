@@ -8,10 +8,13 @@ let number1 = "";
 let number2 = "";
 let result = "";
 let sign = "";
+let checkEqual;
 
 numbers.forEach((btn) =>
   btn.addEventListener("click", (e) => {
-    if (screenValue === "") {
+    if (screenValue === "" && checkEqual === 1) {
+      resetData();
+    } else if (screenValue === "") {
       screen.innerHTML = "";
     }
     let input = e.target.textContent;
@@ -32,13 +35,12 @@ operators.forEach((operator) =>
       if (screenValue !== "") {
         number2 = +screenValue;
       } else {
-        return;
+        checkEqual = 0;
       }
       screenValue = "";
       checkSign(sign);
       sign = e.target.textContent;
-      console.log(number2);
-      console.log(`Result is: ${result}`);
+      number2 = "";
     }
   })
 );
@@ -48,6 +50,7 @@ equal.addEventListener("click", () => {
     number2 = +screenValue;
     screenValue = "";
     screen.innerHTML = "";
+    checkEqual = 1;
     checkSign(sign);
     console.log(number2);
     console.log(`Result is: ${result}`);
@@ -64,8 +67,12 @@ function checkSign() {
     screen.innerHTML = subtract(number1, number2);
     number1 = subtract(number1, number2);
   } else if (sign === "*") {
-    screen.innerHTML = multiply(number1, number2);
-    number1 = multiply(number1, number2);
+    if (number2 === 0 || number2 === "") {
+      return;
+    } else {
+      screen.innerHTML = multiply(number1, number2);
+      number1 = multiply(number1, number2);
+    }
   } else if (sign === "/") {
     screen.innerHTML = devide(number1, number2);
     number1 = devide(number1, number2);
@@ -73,14 +80,18 @@ function checkSign() {
   sign = "";
 }
 
-reset.addEventListener("click", () => {
+reset.addEventListener("click", resetData);
+
+function resetData() {
   number1 = "";
   number2 = "";
   result = "";
   sign = "";
+  checkEqual = 0;
   screenValue = "";
   screen.innerHTML = "";
-});
+  console.log("ResetData");
+}
 
 function add(number1, number2) {
   return (result = number1 + number2);
@@ -95,11 +106,12 @@ function multiply(number1, number2) {
 }
 
 function devide(number1, number2) {
-  if (number2 !== 0) {
+  if (number2 === "") {
+    return number1;
+  } else if (number2 !== 0) {
     return (result = number1 / number2);
-  } else if (number2 === "") {
-    return;
-  } else if (number2 === 0) {
+  } else if (number2 == 0) {
+    resetData();
     return "( : NICE TRY";
   }
 }
