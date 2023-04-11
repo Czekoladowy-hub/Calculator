@@ -1,6 +1,7 @@
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const reset = document.querySelector(".reset");
+const decimal = document.querySelector(".decimal");
 let screen = document.querySelector(".screen");
 let equal = document.querySelector(".isEqual");
 let screenValue = "";
@@ -22,6 +23,15 @@ numbers.forEach((btn) =>
     screenValue += input;
   })
 );
+
+decimal.addEventListener("click", () => {
+  if (screenValue.includes(".")) {
+    return;
+  } else {
+    screenValue += ".";
+    screen.innerHTML += ".";
+  }
+});
 
 operators.forEach((operator) =>
   operator.addEventListener("click", (e) => {
