@@ -26,10 +26,9 @@ body {
   border: 4px solid #122b2a;
   background-color: white;
   border-radius: 10px;
-
-  direction: rtl;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
 }
 
 .buttonsContainer {
