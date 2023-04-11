@@ -83,14 +83,14 @@ function checkSign() {
   } else if (sign === "-") {
     screen.innerHTML = subtract(number1, number2);
     number1 = subtract(number1, number2);
-  } else if (sign === "*") {
+  } else if (sign === "x") {
     if (number2 === 0 || number2 === "") {
       return;
     } else {
       screen.innerHTML = multiply(number1, number2);
       number1 = multiply(number1, number2);
     }
-  } else if (sign === "/") {
+  } else if (sign === "÷") {
     screen.innerHTML = devide(number1, number2);
     number1 = devide(number1, number2);
   }

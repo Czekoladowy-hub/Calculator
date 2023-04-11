@@ -1,23 +1,32 @@
+@font-face {
+  font-family: myFont;
+  src: url(fonts/digital-7.ttf);
+}
+
 body {
-  background-color: darkgray;
+  background-color: rgb(110, 110, 114);
 }
 
 .mainContainer {
   width: 400px;
-  border: 5px solid black;
+  border: 7px solid rgb(248, 157, 124);
+  background-color: rgb(233, 233, 233);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 100px auto;
 }
 
 .screen {
+  font-family: myFont;
+  font-size: 50px;
   height: 100px;
-  margin: 20px;
+  margin: 30px 20px 40px 20px;
   padding: 0 10px;
-  border: 5px solid black;
+  border: 4px solid #122b2a;
+  background-color: white;
   border-radius: 10px;
-  font-size: 30px;
+
   direction: rtl;
   display: flex;
   align-items: center;
@@ -31,15 +40,30 @@ body {
 }
 
 .calculatorBtn {
-  font-size: 20px;
-
-  box-sizing: border-box;
+  color: white;
+  font-size: 25px;
   border: 3px solid black;
+  background-color: #ffa185;
   border-radius: 10px;
   width: calc(25% - 7.5px);
   aspect-ratio: 1;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 9px #999;
 }
 
-.number {
-  background-color: rgb(255, 138, 138);
+.reset,
+.backspace {
+  width: calc(50% - 5px);
+  aspect-ratio: 2;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.buttonsContainer > button:active {
+  background-color: #69be6b;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
