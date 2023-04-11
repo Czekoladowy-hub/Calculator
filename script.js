@@ -2,6 +2,7 @@ const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const reset = document.querySelector(".reset");
 const decimal = document.querySelector(".decimal");
+const backspace = document.querySelector(".backspace");
 let screen = document.querySelector(".screen");
 let equal = document.querySelector(".isEqual");
 let screenValue = "";
@@ -31,6 +32,12 @@ decimal.addEventListener("click", () => {
     screenValue += ".";
     screen.innerHTML += ".";
   }
+});
+
+backspace.addEventListener("click", () => {
+  backspaceScreenValue = screenValue.slice(0, -1);
+  screen.innerHTML = backspaceScreenValue;
+  screenValue = backspaceScreenValue;
 });
 
 operators.forEach((operator) =>
