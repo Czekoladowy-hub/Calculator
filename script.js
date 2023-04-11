@@ -126,7 +126,7 @@ function devide(number1, number2) {
   if (number2 === "") {
     return number1;
   } else if (number2 !== 0) {
-    return (result = number1 / number2);
+    return (result = number1 / number2).toFixed(3);
   } else if (number2 == 0) {
     resetData();
     return "( : NICE TRY";
